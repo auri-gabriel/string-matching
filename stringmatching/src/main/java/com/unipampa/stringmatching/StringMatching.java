@@ -5,24 +5,35 @@
  */
 package com.unipampa.stringmatching;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Auri Gabriel
  */
 public class StringMatching {
+
     public static void main(String[] args) {
-        String teste = "teste";
-        String st = "st";
-        System.out.println(indexOf(teste.toCharArray(), st.toCharArray()));
+        Scanner e = new Scanner(System.in);
+        String heystack = "a arca de noé";
+        System.out.println(heystack);
+        String needle = "";
+        System.out.println("Digite a letra que deseja saber a posição:");
+        needle = e.nextLine();
+        System.out.print("A posição da letra é:");
+        System.out.println(indexOf(heystack.toCharArray(), needle.toCharArray()));
     }
-    
-     /**
-     * Returns the index within this string of the first occurrence of the
-     * specified substring. If it is not a substring, return -1.
+
+    /**
+     * English: Returns the index within this string of the first occurrence of
+     * the specified substring. If it is not a substring, return -1.
      *
-     * @param haystack The string to be scanned
-     * @param needle The target string to search
-     * @return The start index of the substring
+     * PT-BR: Devolve o índice dentro desta string da primeira ocorrência da
+     * substring especificada. Se não for uma substring, retorna -1.
+     *
+     * @param haystack The string to be scanned | A string para ser escaneada
+     * @param needle The target string to search | A string a ser buscada
+     * @return The start index of the substring | O índice inicial da substrting
      */
     public static int indexOf(char[] haystack, char[] needle) {
         if (needle.length == 0) {
@@ -43,7 +54,9 @@ public class StringMatching {
     }
 
     /**
-     * Makes the jump table based on the mismatched character information.
+     * English: Makes the jump table based on the mismatched character
+     * information. PT-BR: Faz a tabela de salto com base na informação de
+     * carácter desajustada.
      */
     private static int[] makeCharTable(char[] needle) {
         final int ALPHABET_SIZE = 256;
@@ -58,7 +71,9 @@ public class StringMatching {
     }
 
     /**
-     * Makes the jump table based on the scan offset which mismatch occurs.
+     * English: Makes the jump table based on the scan offset which mismatch
+     * occurs. PT-BR: Faz a tabela de salto com base no offset da varredura, o
+     * qual ocorre um descasamento.
      */
     private static int[] makeOffsetTable(char[] needle) {
         int[] table = new int[needle.length];
@@ -77,7 +92,8 @@ public class StringMatching {
     }
 
     /**
-     * Is needle[p:end] a prefix of needle?
+     * English: Is needle[p:end] a prefix of needle? PT-BR: É a agulha[p:end] um
+     * prefixo de agulha?
      */
     private static boolean isPrefix(char[] needle, int p) {
         for (int i = p, j = 0; i < needle.length; ++i, ++j) {
@@ -89,12 +105,14 @@ public class StringMatching {
     }
 
     /**
-     * Returns the maximum length of the substring ends at p and is a suffix.
+     * English: Returns the maximum length of the substring ends at p and is a
+     * suffix. PT-BR: Retorna o tamanho maximo da substring, termina na int p,
+     * que é um sufixo.
      */
     private static int suffixLength(char[] needle, int p) {
         int len = 0;
         for (int i = p, j = needle.length - 1;
-                 i >= 0 && needle[i] == needle[j]; --i, --j) {
+                i >= 0 && needle[i] == needle[j]; --i, --j) {
             len += 1;
         }
         return len;
