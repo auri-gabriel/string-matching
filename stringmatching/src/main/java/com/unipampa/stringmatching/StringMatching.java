@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 public class StringMatching {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {        
         Scanner e = new Scanner(System.in);
         String heystack;
         System.out.println("Digite o texto que deseja usar para a busca:");
@@ -56,7 +56,9 @@ public class StringMatching {
 
     /**
      * English: Makes the jump table based on the mismatched character
-     * information. PT-BR: Faz a tabela de salto com base na informação de
+     * information. 
+     * 
+     * PT-BR: Faz a tabela de salto com base na informação de
      * carácter desajustada.
      */
     private static int[] makeCharTable(char[] needle) {
@@ -73,7 +75,9 @@ public class StringMatching {
 
     /**
      * English: Makes the jump table based on the scan offset which mismatch
-     * occurs. PT-BR: Faz a tabela de salto com base no offset da varredura, o
+     * occurs. 
+     * 
+     * PT-BR: Faz a tabela de salto com base no offset da varredura, o
      * qual ocorre um descasamento.
      */
     private static int[] makeOffsetTable(char[] needle) {
@@ -93,8 +97,9 @@ public class StringMatching {
     }
 
     /**
-     * English: Is needle[p:end] a prefix of needle? PT-BR: É a agulha[p:end] um
-     * prefixo de agulha?
+     * English: Is needle[p:end] a prefix of needle? 
+     * 
+     * PT-BR: É a agulha[p:end] um prefixo de agulha?
      */
     private static boolean isPrefix(char[] needle, int p) {
         for (int i = p, j = 0; i < needle.length; ++i, ++j) {
@@ -107,7 +112,9 @@ public class StringMatching {
 
     /**
      * English: Returns the maximum length of the substring ends at p and is a
-     * suffix. PT-BR: Retorna o tamanho maximo da substring, termina na int p,
+     * suffix. 
+     * 
+     * PT-BR: Retorna o tamanho maximo da substring, termina na int p,
      * que é um sufixo.
      */
     private static int suffixLength(char[] needle, int p) {
