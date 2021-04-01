@@ -15,12 +15,13 @@ public class StringMatching {
 
     public static void main(String[] args) {
         Scanner e = new Scanner(System.in);
-        String heystack = "a arca de noé";
-        System.out.println(heystack);
-        String needle = "";
-        System.out.println("Digite a letra que deseja saber a posição:");
+        String heystack;
+        System.out.println("Digite o texto que deseja usar para a busca:");
+        heystack = e.nextLine();
+        String needle;
+        System.out.println("Digite o que o texto ou letra que deseja buscar a posição:");
         needle = e.nextLine();
-        System.out.print("A posição da letra é:");
+        System.out.print("A posição é:");
         System.out.println(indexOf(heystack.toCharArray(), needle.toCharArray()));
     }
 
